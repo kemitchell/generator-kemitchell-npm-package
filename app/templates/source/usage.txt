@@ -1,0 +1,5 @@
+<%= props.description[0].toUpperCase() + props.description.slice(1) %>.
+
+Usage:
+  <%= name %> --help | -h
+  <%= name %> --version | -v

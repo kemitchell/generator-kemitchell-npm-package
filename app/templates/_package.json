@@ -1,0 +1,24 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.0",
+  "description": "<%= props.description %>",
+  "homepage": "https://github.com/<%= repository %>",
+  "bugs":"https://github.com/<%= repository %>/issues",
+  "author": {
+    "name": "Kyle E. Mitchell",
+    "email": "kyle@kemitchell.com",
+    "url": "http://kemitchell.com"
+  },
+  "main":"source/index.js",
+  "repository": "<%= repository %>",
+  "license": "Apache-2.0",
+  "keywords": <%= JSON.stringify(keywords) %>,
+  "scripts": {
+    "coverage": "covert -q test/*.test.js",
+    "lint": "fixpack && jshint source test && jscs source test",
+    "precommit": "npm run lint && npm run test && npm run coverage",
+    "test": "jsmd README.md && tap test/*.test.js"
+  }<% if (props.cli) { %>,
+  "bin": "./bin/<%= name %>"
+  <% } %>
+}

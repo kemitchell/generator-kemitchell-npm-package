@@ -1,0 +1,37 @@
+{
+  "name": "generator-kemitchell-npm-package",
+  "description": "create an npm package, kemitchell style",
+  "version": "0.0.0",
+  "author": {
+    "name": "Kyle E. Mitchell",
+    "email": "kyle@kemitchell",
+    "url": "http://kemitchell.com"
+  },
+  "bugs": "https://github.com/kemitchell/generator-kemitchell-npm-package/issues",
+  "dependencies": {
+    "camelcase": "^1.0.2",
+    "npm-name": "^1.0.2",
+    "yeoman-generator": "^0.18.3"
+  },
+  "files": [
+    "app"
+  ],
+  "homepage": "https://github.com/kemitchell/generator-kemitchell-npm-package",
+  "keywords": [
+    "cli",
+    "module",
+    "node",
+    "scaffold",
+    "yeoman-generator"
+  ],
+  "license": "Apache-2.0",
+  "main": "app",
+  "repository": "kemitchell/generator-kemitchell-npm-package",
+  "devDependencies": {
+    "jscs": "^1.13.1",
+    "jshint": "^2.7.0"
+  },
+  "scripts":{
+    "lint":"jshint app && jscs app"
+  }
+}
