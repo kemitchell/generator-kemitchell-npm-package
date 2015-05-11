@@ -47,23 +47,29 @@ module.exports = yeoman.generators.Base.extend({
   askFor: function() {
     var cb = this.async();
 
-    var prompts = [{
-      name: 'description',
-      message: 'Description',
-      default: 'The best module ever'
-    }, {
-      name: 'githubUsername',
-      message: 'GitHub username or organization',
-      default: 'kemitchell',
-      store: true
-    }, {
-      name: 'keywords',
-      message: 'keywords (comma to split)'
-    }, {
-      type: 'confirm',
-      name: 'cli',
-      message: 'Command-line interface'
-    }];
+    var prompts = [
+      {
+        name: 'description',
+        message: 'Description',
+        default: 'The best module ever'
+      }, {
+        name: 'githubUsername',
+        message: 'GitHub username or organization',
+        default: 'kemitchell',
+        store: true
+      }, {
+        name: 'keywords',
+        message: 'keywords (comma to split)'
+      }, {
+        type: 'confirm',
+        name: 'cli',
+        message: 'Command-line interface'
+      }, {
+        type: 'confirm',
+        name: 'travis',
+        message: 'Use Travis CI'
+      }
+    ];
 
     this.prompt(prompts, function(props) {
       this.repository = props.githubUsername + '/' + this.name + '.js';
@@ -92,12 +98,15 @@ module.exports = yeoman.generators.Base.extend({
       'gitignore',
       'jscsrc',
       'jshintrc',
-      'npmignore',
-      'travis.yml'
+      'npmignore'
     ]
       .forEach(function(dotfile) {
         this.copy(dotfile, '.' + dotfile);
       }.bind(this));
+
+    if (this.props.travis) {
+      this.copy('travis.yml', '.travis.yml');
+    }
 
     [
       'README.md',
@@ -107,8 +116,9 @@ module.exports = yeoman.generators.Base.extend({
         this.template(file, file);
       }.bind(this));
 
+    this.mkdir('source');
+
     if (this.props.cli) {
-      this.mkdir('source');
       this.template('source/cli.js', 'source/cli.js');
       this.template('source/usage.txt', 'source/usage.txt');
       this.mkdir('bin');
