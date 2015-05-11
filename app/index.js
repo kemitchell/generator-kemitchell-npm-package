@@ -109,6 +109,7 @@ module.exports = yeoman.generators.Base.extend({
     }
 
     this.copy('_README.md', 'README.md');
+    this.copy('_package.json', 'package.json');
     this.copy('LICENSE', 'LICENSE');
 
     this.mkdir('source');
