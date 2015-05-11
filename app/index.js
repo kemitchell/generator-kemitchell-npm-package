@@ -108,13 +108,8 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('travis.yml', '.travis.yml');
     }
 
-    [
-      'README.md',
-      'LICENSE'
-    ]
-      .forEach(function(file) {
-        this.template(file, file);
-      }.bind(this));
+    this.copy('_README.md', 'README.md');
+    this.copy('LICENSE', 'LICENSE');
 
     this.mkdir('source');
 
