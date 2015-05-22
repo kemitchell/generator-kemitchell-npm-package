@@ -8,6 +8,7 @@
 <%= props.description[0].toUpperCase() + props.description.slice(1) %>.
 
 <!-- js
+  // The examples below are run as tests.
   var <%= camelCaseName %> = require('./');
 -->
 
