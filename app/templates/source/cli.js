@@ -19,7 +19,6 @@ module.exports = function(stdin, stdout, stderr, env, argv, callback) {
     callback(1);
     return;
   }
-
   if (options['--version'] || options['-v']) {
     stdout.write(meta.name + ' ' + meta.version + '\n');
     callback(0);
