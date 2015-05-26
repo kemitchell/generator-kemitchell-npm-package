@@ -2,9 +2,8 @@ var docopt = require('docopt');
 var fs = require('fs');
 var path = require('path');
 
-var meta = require('../package.json');
-var usage = fs.readFileSync(path.join(__dirname, 'usage.txt'))
-  .toString();
+var meta = require('../package');
+var usage = fs.readFileSync(path.join(__dirname, 'usage')).toString();
 
 module.exports = function(stdin, stdout, stderr, env, argv, callback) {
   var options;

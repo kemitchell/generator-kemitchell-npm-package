@@ -116,7 +116,7 @@ module.exports = yeoman.generators.Base.extend({
 
     if (this.props.cli) {
       this.template('source/cli.js', 'source/cli.js');
-      this.template('source/usage.txt', 'source/usage.txt');
+      this.template('source/usage', 'source/usage');
       this.mkdir('bin');
       this.template('bin/cli', 'bin/' + this.name);
     }
