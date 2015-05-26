@@ -15,7 +15,7 @@ module.exports = function(stdin, stdout, stderr, env, argv, callback) {
       exit: false
     });
   } catch (error) {
-    stderr.write(error.message);
+    stderr.write(error.message + '\n');
     callback(1);
     return;
   }
